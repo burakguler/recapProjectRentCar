@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace DataAccessLayer.Abstract
 {
-    public interface ICarDal:IEntityRepository<Car>
-    {  
+    public interface IBrandDal:IEntityRepository<Brand>
+    {
     }
 }

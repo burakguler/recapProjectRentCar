@@ -24,11 +24,6 @@ namespace BusinessLayer.Concrete
             return _carDal.GetAll();
         }
 
-        public List<Car> GetAllById(int Id)
-        {
-            return _carDal.GetAllById(Id);
-        }
-
         public void Update(Car car)
         {
             _carDal.Update(car);
@@ -37,7 +32,21 @@ namespace BusinessLayer.Concrete
         public void Delete(Car car)
         {
             _carDal.Delete(car);
-        }   
-      
+        }
+
+        public List<Car> GetCarsByBrandId(int Id)
+        {
+             return _carDal.GetAll(b => b.BrandId == Id);
+        }
+
+        public List<Car> GetCarsByColorId(int Id)
+        {
+            return _carDal.GetAll(c => c.ColorId == Id);
+        }
+
+        public List<Car> GetByDailyPrice(decimal min, decimal max)
+        {
+            return _carDal.GetAll(p => p.DailyPrice >= min && p.DailyPrice <= max);
+        }
     }
 }

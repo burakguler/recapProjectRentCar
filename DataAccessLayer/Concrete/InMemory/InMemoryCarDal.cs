@@ -3,6 +3,7 @@ using Entities.Concrete;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Linq.Expressions;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -26,16 +27,20 @@ namespace DataAccessLayer.Concrete.InMemory
         {
             _cars.Add(car);
         }
-       
-        public List<Car> GetAll()
+        public List<Car> GetAll(Expression<Func<Car, bool>> filter = null)
         {
             return _cars;
-        }
 
+        }
+        public Car Get(Expression<Func<Car, bool>> filter)
+        {
+            throw new NotImplementedException();
+        }
         public List<Car> GetAllById(int Id)
         {
-            return _cars.Where(c => c.Id == Id).ToList();   
+            return _cars.Where(c => c.Id == Id).ToList();
         }
+      
 
         public void Update(Car car)
         {
@@ -51,7 +56,6 @@ namespace DataAccessLayer.Concrete.InMemory
         public void Delete(Car car)
         {
             Car carToDelete = _cars.SingleOrDefault(c => c.Id == car.Id);
-        }
-
+        }     
     }
 }

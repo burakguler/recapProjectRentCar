@@ -11,7 +11,9 @@ namespace BusinessLayer.Abstract
     {
         void Add(Car car);
         List<Car> GetAll();
-        List<Car> GetAllById(int Id);
+        List<Car> GetCarsByBrandId(int Id);
+        List<Car> GetCarsByColorId(int Id);
+        List<Car> GetByDailyPrice(decimal min, decimal max);
         void Update(Car car);
         void Delete(Car car);
     }
