@@ -16,15 +16,31 @@ namespace ConsoleUI
             foreach (var car in carManager.GetCarsByColorId(3))
             {
                 Console.WriteLine
-                    ("Araba: "+ car.Id+" "+ car.Name+"\n"+"------------RENKE GÖRE------------"+"\n"+
-                    "Açıklama: " + car.Description + "\n"+
-                    "Marka: " + car.BrandId + "\n"+
-                    "Renk: " + car.ColorId + "\n" +
+                    ("------------For COLOR ID------------" + "\n" + 
+                    "Car:" + car.Id+" -> "+ car.Name+"\n"+
+                    "Description: " + car.Description + "\n"+
+                    "Brand: " + car.BrandId + "\n"+
+                    "Color: " + car.ColorId + "\n" +
                     "Model: " + car.ModelYear + "\n" +
-                    "Günlük Kiralama Ücreti: $" + car.DailyPrice + "\n" +
-                    "Haftalık Kiralama Ücreti: $" + car.WeeklyPrice + "\n" +
-                    "Aylık Kiralama Ücreti: $" + car.MonthlyPrice + "\n"+ "\t\t\n"
+                    "Daily Price: $" + car.DailyPrice + "\n" +
+                    "Weekly Price: $" + car.WeeklyPrice + "\n" +
+                    "Monthly Price: $" + car.MonthlyPrice + "\n"+ "\t\t\n"
                     ); 
+            }
+
+            foreach (var car in carManager.GetCarsByBrandId(1))
+            {
+                Console.WriteLine
+                    ("------------For BRAND ID------------" + "\n" +
+                    "Car:" + car.Id + " -> " + car.Name + "\n" +
+                    "Description: " + car.Description + "\n" +
+                    "Brand: " + car.BrandId + "\n" +
+                    "Color: " + car.ColorId + "\n" +
+                    "Model: " + car.ModelYear + "\n" +
+                    "Daily Price: $" + car.DailyPrice + "\n" +
+                    "Weekly Price: $" + car.WeeklyPrice + "\n" +
+                    "Monthly Price: $" + car.MonthlyPrice + "\n" + "\t\t\n"
+                    );
             }
 
             foreach (var car in carManager.GetCarsByBrandId(2))
@@ -32,27 +48,25 @@ namespace ConsoleUI
                 foreach (var brand in brandManager.GetNameById(2))
                 {
                     Console.WriteLine
-                            ("Araba: " + car.Id + " " + car.Name + " " + brand.BrandName + "\n" + "----------- TUM OZELLIKLER -------------" + "\n" +
-                            "Açıklama: " + car.Description + "\n" +
-                            "Marka: " + car.BrandId + "\n" +
-                            "Renk: " + car.ColorId + " " + "\n" +
-                            "Model: " + car.ModelYear + "\n" +
-                            "Günlük Kiralama Ücreti: $" + car.DailyPrice + "\n" +
-                            "Haftalık Kiralama Ücreti: $" + car.WeeklyPrice + "\n" +
-                            "Aylık Kiralama Ücreti: $" + car.MonthlyPrice + "\n" + "\t\t\n"
-                            );
-
-                    foreach (var color in colorManager.GetNameById(2))
+                            ("-----------All Features-------------" + "\n" + 
+                            "Car:" + car.Id + " -> " + brand.BrandName + " " + car.Name + "\n" + 
+                            "Description: " + car.Description + "\n" +
+                            "Brand: " + car.BrandId); 
+                    foreach (var color in colorManager.GetNameById(3))
                     {
                         Console.WriteLine
-                            ("Araba: " + car.Id + " " + car.Name + " " + brand.BrandName + "\n" + "----------- TUM OZELLIKLER -------------" + "\n" +
-                            
-                            );
+                            ("Color Id: "+car.ColorId+"\nColor: " + color.ColorName);
                     }
-                     
+                    
+                    Console.WriteLine
+                            ("Model: " + car.ModelYear + "\n"+
+                            "Daily Price: $" + car.DailyPrice + "\n" +
+                            "Weekly Price: $" + car.WeeklyPrice + "\n" +
+                            "Monthly Price: $" + car.MonthlyPrice + "\n" + "\t\t\n"); 
                 }
                
             }
+           
         }
     }
 }
